@@ -9,20 +9,18 @@ curl whatsinstandard.com/api/4/sets.json
 This will return something like:
 
 ```json
-{
-  "sets": [
-    {
-      "name": "Theros",
-      "block": "Theros",
-      "code": "THS",
-      "symbol": "http://whatsinstandard.com/img/ths.jpg",
-      "enter_date": "2013-09-27T00:00:00.000Z",
-      "exit_date": null,
-      "rough_exit_date": "late 2015"
-    },
-    ...
-  ]
-}
+[
+  {
+    "name": "Khans of Tarkir",
+    "block": "Khans of Tarkir",
+    "code": "KTK",
+    "symbol": "http://whatsinstandard.com/img/ktk.svg",
+    "enter_date": "2014-09-26T00:00:00.000Z",
+    "exit_date": "2015-04-08T00:00:00.000Z",
+    "rough_exit_date": "Q2 2016"
+  },
+  ...
+]
 ```
 
 But you can just [visit it yourself][1] to see everything. You'll get some JSON containing an array of Magic sets. Each
@@ -31,12 +29,12 @@ set has some fields:
 | field             | type                                                                | description                               |
 |:----------------- |:------------------------------------------------------------------- |:----------------------------------------- |
 | `name`            | string                                                              | human-readable name of the set            |
-| `block`           | string, or `null` if a core set                                     | human-readable name of the set's block    |
+| `block`           | string                                                              | human-readable name of the set's block    |
 | `code`            | string, matching regex `/[A-Z]{3}/`                                 | official three-character code of the set  |
 | `symbol`          | string                                                              | URL to the official set image             |
 | `enter_date`      | string                                                              | release date of the set                   |
 | `exit_date`       | string, or `null` if not exactly known                              | date the set exits Standard, if known     |
-| `rough_exit_date` | string, matching regex <code>/(early\/mid&#124;late) 20\d\d/</code> | rough time of year the set exits Standard |
+| `rough_exit_date` | string, matching regex `/Q[1-4] 20\d\d/`                            | rough time of year the set exits Standard |
 
 The sets array is guaranteed to be in order of release (aka `enter_date`), from oldest set to newest.
 
@@ -49,8 +47,8 @@ versions will eventually return `[]`.
 #### Changelog
 
 ##### Version 4
-The root node has changed from the sets array itself (`[{...}, {...}, ..., {...}]`) to an object containing the sets
-array (`{"sets": [{...}, {...}, ..., {...}]}`).
+`block` is now guaranteed non-null. Valid `rough_exit_date` regex has changed from `/(early\/mid|late) 20\d\d/` to
+`/Q[1-4] 20\d\d/`.
 
 ##### Version 3
 Valid `rough_exit_date` regex has changed from `/(early|late) 20\d\d/` to `/(early\/mid|late) 20\d\d/` to account for

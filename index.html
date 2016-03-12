@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" media="screen" />
     <link rel="stylesheet" href="bower_components/tipsy/src/stylesheets/tipsy.css" media="screen" />
     <link rel="stylesheet" href="css/style.css" media="screen" />
+    <link rel="manifest" href="manifest.json">
   </head>
   <body>
     <div class="container">
@@ -17,25 +18,28 @@
         </div>
       </div>
       <div class="col-md-5">
-        <ul class="list-group">
-          <li class="list-group-item">
+        <div class="recently-dropped-toggle-container">
+          <a href="#" class="low-distraction" onclick="toggleRecentlyDropped();">show recently dropped sets</a>
+        </div>
+        <ul id="recently-dropped" class="list-group" style="display: none;">
+          <li class="list-group-item gray">
             Theros
             <span class="badge"><img src="img/ths.svg" /></span>
           </li>
-          <li class="list-group-item">
+          <li class="list-group-item gray">
             Born of the Gods
             <span class="badge"><img src="img/bng.svg" /></span>
           </li>
-          <li class="list-group-item">
+          <li class="list-group-item gray">
             Journey into Nyx
             <span class="badge"><img src="img/jou.svg" /></span>
           </li>
-          <li class="list-group-item">
+          <li class="list-group-item gray">
             2015 Core Set
             <span class="badge"><img src="img/m15.svg" /></span>
           </li>
-          <span class="label label-warning">
-            Until October 2, 2015
+          <span class="label label-low-distraction">
+            Dropped October 2015
           </span>
         </ul>
         <ul class="list-group">
@@ -47,8 +51,8 @@
             Fate Reforged
             <span class="badge"><img src="img/frf.svg" /></span>
           </li>
-          <span class="label label-success">
-            Until early/mid 2016
+          <span class="label label-warning">
+            Until April 8, 2016
           </span>
         </ul>
         <ul class="list-group">
@@ -56,16 +60,46 @@
             Dragons of Tarkir
             <span class="badge"><img src="img/dtk.svg" /></span>
           </li>
-          <li class="list-group-item gray">
+          <li class="list-group-item">
             Magic Origins
+            <span class="badge"><img src="img/ori.svg" /></span>
           </li>
-          <span class="label label-primary">
-            Until late 2016
-          </span>
-          <span class="label label-default">
-            Magic Origins releases July 17, 2015
+          <span class="label label-success">
+            Until Q4 2016
           </span>
         </ul>
+        <ul class="list-group">
+          <li class="list-group-item">
+            Battle for Zendikar
+            <span class="badge"><img src="img/bfz.svg" /></span>
+          </li>
+          <li class="list-group-item">
+            Oath of the Gatewatch
+            <span class="badge"><img src="img/ogw.svg" /></span>
+          </li>
+          <span class="label label-primary">
+            Until Q2 2017
+          </span>
+        </ul>
+        <ul class="list-group">
+          <li class="list-group-item gray">
+            Shadows over Innistrad
+          </li>
+          <li class="list-group-item gray">
+            Eldritch Moon
+          </li>
+          <span class="label label-default">
+            Shadows over Innistrad releases April 8, 2016
+          </span>
+        </ul>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-2775839314260416"
+             data-ad-slot="7743939687"
+             data-ad-format="horizontal">
+        </ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
       </div>
       <div class="col-md-7">
         <h2>What <em>is</em> Standard?</h2>
@@ -73,48 +107,60 @@
         released and drop out about eighteen months later.</p>
         <p>
           A <i>Standard card</i> is a card printed or reprinted into a set currently in Standard.
-          <a class="tip" title="e.g. As long as Naturalize has a reprint currently in Standard, all previous prints of Naturalize are also considered Standard."></a>
+          <a class="tip"
+             title="e.g. As long as Naturalize has a reprint currently in Standard, all previous prints of Naturalize
+                    are also considered Standard.">
+          </a>
         </p>
         <p>A deck which contains only Standard cards is called a <i>Standard deck</i>.</p>
         <h3>Rotation patterns</h3>
         <p>
-        The set rotation pattern for Standard is currently in a two-year transition between the old set release
-        pattern and the
-        <a href="http://magic.wizards.com/en/articles/archive/mm/metamorphosis" target="_blank">new one</a>.
-          <h4>How the changes touch Standard</h4>
-          <ul>
-            <li>
-              Sets will enter Standard at the same rate (four per year).
-              <a class="tip" title="However, instead of this group of four containing a core set and a three-set block, it will contain two two-set blocks."></a>
-            </li>
-            <li>
-              Sets will rotate out of Standard twice as often, in groups half the size.
-              <a class="tip" title="Two sets per six months, changed from four per twelve."></a>
-            </li>
-            <li>
-              As a result, the mean number of sets in Standard over a rotation period will drop by one.
-              <a class="tip" title="A Standard rotation period will contain (with equal durations) five then six sets; changed from five, six, seven, then eight."></a>
-            </li>
-          </ul>
-          <h4>Getting through the two-year transition</h4>
-          <p>
-            The <i>Theros</i> block and <i>2015 Core Set</i> will drop out together, as in the old rotation pattern.
-          </p>
-          <p>
-            The <i>Khans of Tarkir</i> block and <i>Magic Origins</i>, although released in the old style, will drop out
-            in the new; <i>Khans of Tarkir</i> and <i>Fate Reforged</i> will drop out together as if they were a two-set
-            block, followed by <i>Dragons of Tarkir</i> and <i>Magic Origins</i> in the same fashion six months later.
-          </p>
-          <p>After that, all sets will be both released and dropped in the new style.</p>
+          The set rotation pattern for Standard is currently in a two-year transition between the old set release
+          pattern and the
+          <a href="http://magic.wizards.com/en/articles/archive/mm/metamorphosis" target="_blank">new one</a>.
+        </p>
+        <h4>How the changes touch Standard</h4>
+        <ul>
+          <li>
+            Sets will enter Standard at the same rate (four per year).
+            <a class="tip"
+               title="However, instead of this group of four containing a core set and a three-set block, it will
+                      contain two two-set blocks.">
+            </a>
+          </li>
+          <li>
+            Sets will rotate out of Standard twice as often, in groups half the size.
+            <a class="tip" title="Two sets per six months, changed from four per twelve."></a>
+          </li>
+          <li>
+            As a result, the mean number of sets in Standard over a rotation period will drop by one.
+            <a class="tip"
+               title="A Standard rotation period will contain (with equal durations) five then six sets;
+                      changed from five, six, seven, then eight.">
+            </a>
+          </li>
+        </ul>
+        <h4>Getting through the two-year transition</h4>
+        <p>
+          The <i>Theros</i> block and <i>2015 Core Set</i> recently dropped out of Standard together, following the
+          old rotation pattern.
+        </p>
+        <p>
+          The <i>Khans of Tarkir</i> block and <i>Magic Origins</i>, although released in the old style, will drop out
+          in the new; <i>Khans of Tarkir</i> and <i>Fate Reforged</i> will drop out together as if they were a two-set
+          block, followed by <i>Dragons of Tarkir</i> and <i>Magic Origins</i> in the same fashion six months later.
+        </p>
+        <p>After that, all sets will be both released and dropped in the new style.</p>
       </div>
     </div>
     <footer style="width: 100%; text-align: right; margin-top: 15px;">
-      <a target="_blank" href="https://github.com/glacials/whatsinstandard" style="position: relative; bottom: 15px; right: 15px;">
+      <a class="github" target="_blank" href="https://github.com/glacials/whatsinstandard">
         <img src="img/github.png" />
       </a>
     </footer>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="bower_components/tipsy/src/javascripts/jquery.tipsy.js"></script>
+    <script src="js/toggleRecentlyDropped.js"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
